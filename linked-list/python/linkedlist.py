@@ -21,6 +21,16 @@ class LinkedList:
     self.head = self.head.next
     return value
 
+  def pop_back(self):
+    node = self.head
+    while(node.next.data != None):
+      node = node.next
+    self.tail = node
+    value = node.data
+    node.data = None
+    node.next = None
+    return value
+
   def front(self):
     return self.head.data
 

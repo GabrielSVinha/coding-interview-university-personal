@@ -78,3 +78,6 @@ del tmp_ll
 
 assert(ll.front() == 1)
 assert(ll.back() == 7879)
+
+assert(ll.pop_back() == 7879)
+assert(ll.size() == 7)
