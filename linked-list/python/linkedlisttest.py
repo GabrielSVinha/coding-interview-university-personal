@@ -81,3 +81,9 @@ assert(ll.back() == 7879)
 
 assert(ll.pop_back() == 7879)
 assert(ll.size() == 7)
+
+ll.insert(4, -12)
+assert(ll.value_at(4) == -12)
+assert(ll.value_at(3) == 4)
+assert(ll.size() == 8)
+

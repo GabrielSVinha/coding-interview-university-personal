@@ -13,6 +13,22 @@ class LinkedList:
       self.tail.data = data
       self.tail.next = Node()
       self.tail = self.tail.next
+    
+  def insert(self, index, data):
+    node = self.head
+    while index > 1:
+      if node.next.is_empty():
+        raise IndexError("Out of bounds")
+      node = node.next
+      index -= 1
+    new_node = Node()
+    new_node.data = data
+    if index == 0:
+      new_node.next = self.head
+      self.head = new_node
+    else:
+      new_node.next = node.next
+      node.next = new_node
 
   def pop_front(self):
     if self.head.is_empty():
