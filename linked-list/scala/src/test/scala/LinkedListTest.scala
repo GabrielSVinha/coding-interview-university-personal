@@ -1,6 +1,7 @@
 import main.scala.LinkedList
 import org.scalatest._
 
+
 class LinkedListTest extends FlatSpec with Matchers with OptionValues with Inside with Inspectors{
   "A linked list" should "add values to the end" in {
     val ll = new LinkedList[Int]
@@ -86,6 +87,24 @@ class LinkedListTest extends FlatSpec with Matchers with OptionValues with Insid
 
   "A linked list" should "remove from the first node" in {
     val ll = new LinkedList[Int]
-    print(ll.pop_front())
+    ll.push_back(-15)
+    ll.push_back(75)
+    ll.push_back(100)
+    ll.push_back(23)
+    ll.push_back(10)
+    assert(ll.front() == -15)
+    assert(ll.pop_front() == -15)
+    assert(ll.front() == 75)
+    var i = 0
+    val rnd = new scala.util.Random
+    while(i < 100000){
+      val random = rnd.nextInt()
+      ll.push_back(random)
+      i += 1
+    }
+    assert(ll.pop_front() == 75)
+    assert(ll.pop_front() == 100)
+    assert(ll.pop_front() == 23)
+    assert(ll.pop_front() == 10)
   }
 }

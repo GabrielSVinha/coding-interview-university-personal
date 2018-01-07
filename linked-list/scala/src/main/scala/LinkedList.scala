@@ -52,12 +52,11 @@ class LinkedList[T] extends List[T]{
     }
     return node.getData()
   }
-
   override def pop_front(): T = {
-    if(this.head.isEmpty){
-      return T
+    var value: T = this.head.getData()
+    if(!this.head.isEmpty){
+      this.head = this.head.next
     }
-    val value = this.head.getData()
-    this.head = this.head.next
+    return value
   }
 }
